@@ -3,8 +3,8 @@
 [A1QA] Study project 
 
 Site: https://jsonplaceholder.typicode.com
-|Step|Expecting result|
-|:------------|:----------------|
+|Step              |Expecting result|
+|:-----------------|:--------------------|
 Test case 1
 |Send GET Reques t to get all posts (/ posts).| Status code is 200. The list in response body is json. Posts are sorted ascending (by id).|
 Test case 2
