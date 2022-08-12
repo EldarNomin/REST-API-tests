@@ -4,7 +4,7 @@
 
 Site: https://jsonplaceholder.typicode.com
 |Step|Expecting result|
-|:----|:----------------|
+|:------------|:----------------|
 Test case 1
 |Send GET Reques t to get all posts (/ posts).| Status code is 200. The list in response body is json. Posts are sorted ascending (by id).|
 Test case 2
@@ -14,4 +14,6 @@ Test case 3
 Test case 4
 |Send P OST request to create post with userId= 1 and random body and random title (/p osts).| Status code is 201. Post information is correct: title, body, userId match data from request, id is present in response.|
 Test case 5
-|Send G ET request to get users (/ users).| Status code is 200. The list in response body is json. User (id=5) data equals to:name:ChelseyDietrichusername:Kamrenemail:Lucio_Hettinger@annie.caaddress:street:SkilesWalks suite:Suite351city:Roscoeviewzipcode:33263geo:lat:-31.8129lng":"62.5342"phone:(254)954-1289, website:demarco.infocompany:name:KeeblerLLC,catchPhrase:Usercentricfault-tolerantsolutionbs:revolutionizeendto-endsystems |
+|Send G ET request to get users (/ users).| Status code is 200. The list in response body is json. User (id=5) data equals to:name:ChelseyDietrichusername:Kamrenemail:Lucio_Hettinger@annie.caaddress:street:SkilesWalks suite:Suite351city:Roscoeviewzipcode:33263geo:lat:-31.8129lng":"62.5342"phone:(254)954-1289, website:demarco.infocompany:name:KeeblerLLC,catchPhrase:Usercentricfault-tolerantsolutionbs:revolutionizeendto-endsystems|
+Test case 6
+|Send G ET request to get user with id=5 (/u sers/5)| Status code is 200. User data matches with user data in the previous step.|
