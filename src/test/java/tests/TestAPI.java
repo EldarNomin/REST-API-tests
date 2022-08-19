@@ -5,9 +5,9 @@ import aquality.selenium.core.utilities.ISettingsFile;
 import aquality.selenium.core.utilities.JsonSettingsFile;
 import models.Post;
 import models.User;
-import org.junit.jupiter.api.Test;
 import aquality.selenium.core.logging.Logger;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 import utils.*;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -30,7 +30,7 @@ class TestAPI {
     private static Post actualPost = new Post();
     private static User expectedUser = new User();
 
-    @Test
+    @Test(groups = {"rest"})
     void getPostsAndSortById() {
         logger.info("Getting list of all posts and sort by id");
         List<Post> post = request.getAllResources(POSTS_URI, Post.class);
@@ -40,20 +40,20 @@ class TestAPI {
         Assert.assertEquals(post, actualPost, "Posts are not sorted");
     }
 
-    @Test
+    @Test(groups = {"rest"})
     void getValidPostId() {
         logger.info("Getting post with id %s", VALID_POST_ID);
         expectedPost = setPost(VALID_POST_ID);
         Assert.assertEquals(expectedPost, request.getValidResource(POSTS_URI, VALID_POST_ID, Post.class), "Posts are not equal");
     }
 
-    @Test
+    @Test(groups = {"rest"})
     void invalidPostId() {
         logger.info("Getting post with id %s", INVALID_POST_ID);
         Assert.assertNotNull(request.getInvalidResource(POSTS_URI, INVALID_POST_ID, Post.class), "Post is not valid");
     }
 
-    @Test
+    @Test(groups = {"rest"})
     void sendPost() {
         logger.info("Sending post");
         expectedPost.setBody(RandomUtil.getRandomString());
@@ -66,7 +66,7 @@ class TestAPI {
         Assert.assertFalse(String.valueOf(actualPost.getId()).isEmpty(), "Id is empty");
     }
 
-    @Test
+    @Test(groups = {"rest"})
     void getUsersList() {
         logger.info("Getting users list");
         expectedUser = setUser(VALID_USER_ID);
@@ -76,7 +76,7 @@ class TestAPI {
                 .collect(onlyElement()), expectedUser, "Users are not equal");
     }
 
-    @Test
+    @Test(groups = {"rest"})
     void getUserId() {
         logger.info("Getting userId %s", VALID_USER_ID);
         expectedUser = setUser(VALID_USER_ID);
